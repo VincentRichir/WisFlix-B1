@@ -31,7 +31,7 @@
                 echo $site;
                 ?>
             </h1>
-            <h2>Bienvenue</h2>
+            <h2>Bienvenue frero, pose pas de question y'a pas de reponses</h2>
         </div>
         <p class="lead text-muted">TOUMDOUM </p>
     </section>
