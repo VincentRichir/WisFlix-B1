@@ -47,14 +47,30 @@
                 $req = $dbh -> prepare("SELECT * FROM film WHERE annee=:annee");
                 $req -> bindParam(":annee",$annee);
                 $req -> execute();
+                $films=$req; 
+            } 
+
+            else {
+
+            $req = $dbh -> query ("SELECT * FROM film WHERE 1");
+            $films=$req;
+        }
+            
+
+            if(array_key_exists ("genre", $_GET)){
+                $genre = $_GET["genre"];
+                $req = $dbh -> prepare("SELECT * FROM film INNER JOIN genre ON film.genre_id = genre.id WHERE genre.libelle = $genre");
+                $req -> bindParam(":genre",$genre);
+                $req -> execute();
                 $films=$req;
             }
 
             else {
 
-            $req = $dbh -> query ("SELECT * FROM film WHERE 1");
-            $films=$req;}
-            ;
+                $req = $dbh -> query ("SELECT * FROM film WHERE 1");
+                $films=$req;
+            }
+                
 
             foreach ($films as $film) {
 
